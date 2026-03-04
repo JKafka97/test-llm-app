@@ -11,7 +11,7 @@ services:
     runtime: docker
     dockerfilePath: ./Dockerfile.backend
     repo: https://github.com/<YOUR_GITHUB_USER>/test-llm-app  # ← update this
-    branch: master
+    branch: main
     plan: free
     healthCheckPath: /docs
     envVars:
@@ -24,7 +24,7 @@ services:
     runtime: docker
     dockerfilePath: ./Dockerfile.frontend
     repo: https://github.com/<YOUR_GITHUB_USER>/test-llm-app  # ← update this
-    branch: master
+    branch: main
     plan: free
     envVars:
       - key: API_BASE
