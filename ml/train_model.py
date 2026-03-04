@@ -33,6 +33,7 @@ def train() -> None:
                 elif hour in NIGHT_HOURS:
                     occ = occ * 0.50  # decrease by 50 %
                 occ = np.clip(occ, 0, 100)
+                
                 rows.append(
                     {
                         "hour": hour,
