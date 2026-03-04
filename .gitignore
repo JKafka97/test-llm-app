@@ -7,6 +7,12 @@
 .buildlog/
 .history
 
+# Python
+venv/
+__pycache__/
+*.egg-info/
+ml/model.pkl
+
 
 
 # Flutter repo-specific

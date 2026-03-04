@@ -15,7 +15,7 @@ name: Deploy to Render
 
 on:
   push:
-    branches: [master]
+    branches: [main]
 
 jobs:
   # ── 1. Lint & smoke-test ────────────────────────────────────────────────
