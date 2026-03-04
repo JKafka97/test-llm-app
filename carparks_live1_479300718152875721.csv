@@ -1,0 +1,9 @@
+﻿column0,name,capacity,CapacityForPublic,free,Latitude,Longitude,spacesSubscribersVacant,spacesSubscribersOccupied,spacesAllUsersVacant,spacesAllUsersOccupied,cars,capacity_procent,startdate,ObjectId,x,y
+,"Parkovací dům DOMINI PARK – Brno, Husova 712/14a",367,,157,49.19447,16.6056528,137,6,157,67,210,42.7792915531335,3/4/2026 9:20:00 PM,1
+,"P + R parkovací dům RIVER PARK, Polní 1033/35",110,,105,49.18225,16.60181,0,0,105,5,5,95.4545454545454,3/4/2026 9:20:00 PM,2
+,"Parkovací dům PINKI PARK - Brno, Kopečná 998/24",88,,0,49.1903733,16.6049692,51,37,0,0,88,0,3/4/2026 9:20:00 PM,3
+,Parkoviště Benešova - naproti hotelu Grand,80,,18,49.1926839,16.6140764,0,0,18,62,62,22.5,3/4/2026 9:20:00 PM,4
+,Parkoviště Veveří ,140,,7,49.2072989,16.5925664,0,0,7,133,133,5,3/4/2026 9:20:00 PM,5
+,Parking u Janáčkova divadla,399,,210,49.1990306,16.6094689,43,22,210,124,189,52.6315789473684,3/4/2026 9:20:00 PM,6
+,P+R u Ústředního hřbitova,175,,167,49.1701456,16.5987353,0,0,167,8,8,95.4285714285714,3/4/2026 9:20:00 PM,7
+,P+R Líšeň u Zetoru,224,,224,49.2001003,16.6696408,0,0,224,0,0,100,3/4/2026 9:20:00 PM,8
