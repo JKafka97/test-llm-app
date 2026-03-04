@@ -10,7 +10,7 @@ services:
     name: brno-parking-api
     runtime: docker
     dockerfilePath: ./Dockerfile.backend
-    repo: https://github.com/<YOUR_GITHUB_USER>/test-llm-app  # ← update this
+    repo: https://github.com/JKafka97/test-llm-app
     branch: main
     plan: free
     healthCheckPath: /docs
@@ -23,7 +23,7 @@ services:
     name: brno-parking-frontend
     runtime: docker
     dockerfilePath: ./Dockerfile.frontend
-    repo: https://github.com/<YOUR_GITHUB_USER>/test-llm-app  # ← update this
+    repo: https://github.com/JKafka97/test-llm-app
     branch: main
     plan: free
     envVars:
