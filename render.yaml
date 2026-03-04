@@ -1,0 +1,33 @@
+# render.yaml – Render Infrastructure-as-Code Blueprint
+# https://render.com/docs/blueprint-spec
+#
+# After connecting this repo to Render, it will auto-create both services.
+# Push to master → automatic redeploy.
+
+services:
+  # ── FastAPI backend ──────────────────────────────────────────────────────
+  - type: web
+    name: brno-parking-api
+    runtime: docker
+    dockerfilePath: ./Dockerfile.backend
+    repo: https://github.com/<YOUR_GITHUB_USER>/test-llm-app  # ← update this
+    branch: master
+    plan: free
+    healthCheckPath: /docs
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+
+  # ── Streamlit frontend ──────────────────────────────────────────────────
+  - type: web
+    name: brno-parking-frontend
+    runtime: docker
+    dockerfilePath: ./Dockerfile.frontend
+    repo: https://github.com/<YOUR_GITHUB_USER>/test-llm-app  # ← update this
+    branch: master
+    plan: free
+    envVars:
+      - key: API_BASE
+        value: https://brno-parking-api.onrender.com   # ← auto-set after first deploy
+      - key: PYTHON_VERSION
+        value: "3.12"
