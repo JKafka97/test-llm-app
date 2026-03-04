@@ -1,0 +1,62 @@
+# .github/workflows/deploy.yml
+#
+# On push to master:
+#   1. Lint & test (basic smoke-test)
+#   2. Trigger Render deploy via Deploy Hook
+#
+# Required GitHub Secrets:
+#   RENDER_DEPLOY_HOOK_BACKEND  – Deploy Hook URL for brno-parking-api
+#   RENDER_DEPLOY_HOOK_FRONTEND – Deploy Hook URL for brno-parking-frontend
+#
+# How to get Deploy Hook URLs:
+#   Render Dashboard → Service → Settings → Deploy Hook → Copy URL
+
+name: Deploy to Render
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  # ── 1. Lint & smoke-test ────────────────────────────────────────────────
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Train model
+        run: python ml/train_model.py
+
+      - name: Verify model artifact exists
+        run: test -f ml/model.pkl
+
+      - name: Smoke-test – FastAPI import
+        run: python -c "from backend.main import app; print('FastAPI OK')"
+
+      - name: Smoke-test – Streamlit import
+        run: python -c "import frontend.app; print('Streamlit module OK')"
+
+  # ── 2. Deploy backend to Render ─────────────────────────────────────────
+  deploy-backend:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy (backend)
+        run: curl -s "${{ secrets.RENDER_DEPLOY_HOOK_BACKEND }}"
+
+  # ── 3. Deploy frontend to Render ────────────────────────────────────────
+  deploy-frontend:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Render deploy (frontend)
+        run: curl -s "${{ secrets.RENDER_DEPLOY_HOOK_FRONTEND }}"
