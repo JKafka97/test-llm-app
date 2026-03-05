@@ -9,7 +9,14 @@ import pandas as pd
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI(title="Brno Parking Dynamic Pricing")
+app = FastAPI(
+    title="Brno Parking Dynamic Pricing",
+    description="API for dynamic parking pricing in Brno based on ML-predicted occupancy.",
+    version="1.0.0",
+    docs_url="/docs",          # Swagger UI
+    redoc_url="/redoc",        # ReDoc alternative
+    openapi_url="/openapi.json",
+)
 
 app.add_middleware(
     CORSMiddleware,
